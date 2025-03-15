@@ -6,13 +6,14 @@ const Tab = createMaterialTopTabNavigator();
 export default function ForYou() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Liked" component={LikedScreen} />
+      <Tab.Screen name="Suggested" component={SuggestedScreen} />
+      <Tab.Screen name="Library" component={LibraryScreen} />
     </Tab.Navigator>
   );
 }
 
-function HomeScreen() {
+function LikedScreen() {
   return   <View>
       <Text>
         HomeScreen Only
@@ -20,10 +21,17 @@ function HomeScreen() {
     </View>
 }
 
-function ProfileScreen() {
+function SuggestedScreen() {
    return <View>
     <Text>
       ProfileScreen Only
     </Text>
   </View>
+}
+function LibraryScreen() {
+  return <View>
+   <Text>
+     LibraryScreen Only
+   </Text>
+ </View>
 }
