@@ -1,37 +1,30 @@
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { Text, View } from 'react-native';
+// https://ideogram.ai/assets/progressive-image/balanced/response/UL_6QboVRnOKm2o24N28_g
+// https://ideogram.ai/assets/image/lossless/response/TtdkwgiJSQmyJra5XeN0ww
+// https://ideogram.ai/assets/progressive-image/balanced/response/mbsPKwZATHKECmlcB3iobA
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { Image, SafeAreaView, Text, View } from "react-native";
 
-const Tab = createMaterialTopTabNavigator();
-
-export default function ForYou() {
+export default function Explore() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Liked" component={LikedScreen} />
-      <Tab.Screen name="Suggested" component={SuggestedScreen} />
-      <Tab.Screen name="Library" component={LibraryScreen} />
-    </Tab.Navigator>
-  );
-}
-
-function LikedScreen() {
-  return   <View>
-      <Text>
-        HomeScreen Only
-      </Text>
-    </View>
-}
-
-function SuggestedScreen() {
-   return <View>
-    <Text>
-      ProfileScreen Only
-    </Text>
+    <SafeAreaView 
+    style={{flex: 1}}>
+      <ParallaxScrollView
+        headerBackgroundColor={{ dark: "black ", light: "white" }}
+        headerImage={
+          <Image
+            style={{ 
+            flex : 1,
+            }}
+            source={{
+              uri: "https://ideogram.ai/assets/image/lossless/response/TtdkwgiJSQmyJra5XeN0ww",
+            }}
+          />
+        }
+      >
+    <View style={{ minHeight: 1000 , padding: 20 }}>
+    <Text style={{ color: "white", fontSize: 24 }}>Explore Page</Text>
   </View>
-}
-function LibraryScreen() {
-  return <View>
-   <Text>
-     LibraryScreen Only
-   </Text>
- </View>
+      </ParallaxScrollView>
+    </SafeAreaView>
+  );
 }

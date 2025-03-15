@@ -7,24 +7,24 @@ export default function TabLayout() {
       headerShown : false
      }}>
       <Tabs.Screen
-        name="index"
+        name="foryou"
         options={{
           title: 'For You',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
         }}
       />
-       <Tabs.Screen
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Explore',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="globe" color={color} />,
+        }}
+      />
+      <Tabs.Screen
         name="accounts"
         options={{
           title: 'Account',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="user" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="globe" color={color} />,
         }}
       />
     </Tabs>
