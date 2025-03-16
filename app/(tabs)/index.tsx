@@ -6,11 +6,16 @@ import { ImageCard } from "@/components/ImageCard";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedView } from "@/components/ThemedView";
 import { useWallpapers } from "@/hooks/useWallpapers";
+import { useState } from "react";
 import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { FlatList, GestureHandlerRootView } from "react-native-gesture-handler";
+import { Wallpaper } from "@/hooks/useWallpapers";
+import DowloadPicture from "@/components/BottomSheet";
 
-export default function Explore() {
+export default function explore() {
   const wallpapers = useWallpapers();
+  const [selectedWallpaper , setSelectedWallpaper] = useState<null | Wallpaper>()
+
   return (
     <GestureHandlerRootView>
     <SafeAreaView 
@@ -24,7 +29,10 @@ export default function Explore() {
                <FlatList
                  data={wallpapers.filter((_, index) => index % 2 === 0)}
                  renderItem={({item}) => <View style={styles.imageContainer}>
-                  <ImageCard  wallpaper={item}/>
+                  <ImageCard 
+                  onPress={() => {
+                      setSelectedWallpaper(item)
+                  }} wallpaper={item}/>
                  </View>}
                  keyExtractor={item => item.name}
                />
@@ -33,13 +41,17 @@ export default function Explore() {
               <FlatList
                  data={wallpapers.filter((_, index)=> index % 2 === 1)}
                  renderItem={({item}) => <View style={styles.imageContainer}>
-                  <ImageCard  wallpaper={item}/>
+                  <ImageCard 
+                  onPress={() => {
+                    setSelectedWallpaper(item)
+                  }} wallpaper={item}/>
                  </View>}
                  keyExtractor={item => item.name}
                />
               </ThemedView>
             </ThemedView>
       </ParallaxScrollView>
+      {selectedWallpaper && <DowloadPicture wallpaper={selectedWallpaper} onClose={() => setSelectedWallpaper(null)} />}
     </SafeAreaView>
     </GestureHandlerRootView>
   );

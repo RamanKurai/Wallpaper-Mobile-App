@@ -6,8 +6,8 @@ const Tab = createMaterialTopTabNavigator();
 export default function ForYou() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Liked" component={LikedScreen} />
       <Tab.Screen name="Suggested" component={SuggestedScreen} />
+      <Tab.Screen name="Liked" component={LikedScreen} />
       <Tab.Screen name="Library" component={LibraryScreen} />
     </Tab.Navigator>
   );
