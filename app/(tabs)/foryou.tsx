@@ -1,5 +1,8 @@
+import { SplitView } from '@/components/SplitView';
+import { ThemedView } from '@/components/ThemedView';
+import { useLibraryWallpapers, useSuggestedWallpapers, useWallpapers } from '@/hooks/useWallpapers';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -14,24 +17,27 @@ export default function ForYou() {
 }
 
 function LikedScreen() {
-  return   <View>
-      <Text>
-        HomeScreen Only
-      </Text>
-    </View>
+  const wallpapers = useLibraryWallpapers()
+  return   <ThemedView style={styles.container}>
+     <SplitView wallpapers={wallpapers} />
+    </ThemedView>
 }
 
 function SuggestedScreen() {
-   return <View>
-    <Text>
-      ProfileScreen Only
-    </Text>
-  </View>
+  const wallpapers = useSuggestedWallpapers()
+  return   <ThemedView style={styles.container}>
+     <SplitView wallpapers={wallpapers} />
+    </ThemedView>
 }
 function LibraryScreen() {
-  return <View>
-   <Text>
-     LibraryScreen Only
-   </Text>
- </View>
+  const wallpapers = useLibraryWallpapers()
+  return   <ThemedView style={styles.container}>
+     <SplitView wallpapers={wallpapers} />
+    </ThemedView>
 }
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1
+  }
+})

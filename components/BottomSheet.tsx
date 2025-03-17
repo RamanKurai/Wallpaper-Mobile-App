@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    height: "70%",
+    height: "80%",
     borderRadius: 15,
   },
   topbar: {
