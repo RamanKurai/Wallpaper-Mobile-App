@@ -77,6 +77,7 @@ function DownloadButton() {
     flexDirection: "row",
     borderRadius: 10,
     borderWidth: 1,
+    borderColor: theme === 'light' ? Colors.light.text : Colors.dark.icon
     }}>
       <Ionicons
       name={'download'}
