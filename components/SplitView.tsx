@@ -6,9 +6,13 @@ import { StyleSheet, View } from "react-native";
 import { useState } from "react";
 import DowloadPicture from "./BottomSheet";
 
-export function SplitView({ wallpapers , onScroll }: { wallpapers: Wallpaper[]
-  onScroll?:  (yOffset: number) => void;
- }) {
+export function SplitView({
+  wallpapers,
+  onScroll,
+}: {
+  wallpapers: Wallpaper[];
+  onScroll?: (yOffset: number) => void;
+}) {
   const [selectedWallpaper, setSelectedWallpaper] = useState<null | Wallpaper>(
     null
   );
@@ -16,20 +20,22 @@ export function SplitView({ wallpapers , onScroll }: { wallpapers: Wallpaper[]
     <>
       <FlatList
         onScroll={(e) => {
-          let yOffset = e.nativeEvent.contentOffset.y / 1;
+          let yOffset = e.nativeEvent.contentOffset.y;
           onScroll?.(yOffset);
-      }}
-        data={wallpapers
-          .filter((_, index) => index % 2 === 0)
-          .map((_, index) => [wallpapers[index], wallpapers[index + 1]])}
-        renderItem={({ item: [first, second] }) => (
-          <ThemedView style={styles.container}>
+        }}
+        data={Array.from(
+          { length: Math.ceil(wallpapers.length / 2) },
+          (_, index) => [
+            wallpapers[index * 2],
+            wallpapers[index * 2 + 1] ?? null,
+          ]
+        )}
+        renderItem={({ item: [first, second], index }) => (
+          <ThemedView style={styles.container} key={`row-${index}`}>
             <ThemedView style={styles.innerContainer}>
               <View style={styles.imageContainer}>
                 <ImageCard
-                  onPress={() => {
-                    setSelectedWallpaper(first);
-                  }}
+                  onPress={() => setSelectedWallpaper(first)}
                   wallpaper={first}
                 />
               </View>
@@ -39,16 +45,14 @@ export function SplitView({ wallpapers , onScroll }: { wallpapers: Wallpaper[]
                 <View style={styles.imageContainer}>
                   <ImageCard
                     wallpaper={second}
-                    onPress={() => {
-                      setSelectedWallpaper(second);
-                    }}
+                    onPress={() => setSelectedWallpaper(second)}
                   />
                 </View>
               )}
             </ThemedView>
           </ThemedView>
         )}
-        keyExtractor={(item) => item[0].name}
+        keyExtractor={(_, index) => `wallpaper-${index}`}
       />
       {selectedWallpaper && (
         <DowloadPicture
