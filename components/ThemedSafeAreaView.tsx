@@ -1,6 +1,6 @@
-import { Colors } from "@/constants/Colors";
-import { useColorScheme, View } from "react-native";
+import { StatusBar, useColorScheme } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Colors } from "@/constants/Colors";
 
 export function ThemedSafeAreaView({ children, style = {} }: { 
     children: React.ReactNode; 
@@ -9,10 +9,12 @@ export function ThemedSafeAreaView({ children, style = {} }: {
     const theme = useColorScheme() ?? "light";
 
     return (
-        <View style={{ flex: 1, backgroundColor: Colors[theme].background }}>
-            <SafeAreaView style={[{ flex: 1 }, style]}>
-                <View style={{ flex: 1 }}>{children}</View>
-            </SafeAreaView>
-        </View>
+        <SafeAreaView style={{ backgroundColor: Colors[theme].background, flex: 1, ...style }}>
+            <StatusBar 
+                barStyle={theme === "dark" ? "light-content" : "dark-content"}
+                backgroundColor={Colors[theme].background} 
+            />
+            {children}
+        </SafeAreaView>
     );
 }
