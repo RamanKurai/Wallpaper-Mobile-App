@@ -51,6 +51,18 @@ export function useWallpapers(): FullWallpaper[] {
         liked: false,
         suggested: true,
         library: false
+    },  {
+        url: "https://ideogram.ai/assets/progressive-image/balanced/response/IfLz4vd4Tfy5fnBlMN0cLA",
+        name: "Sunrise",
+        liked: false,
+        suggested: true,
+        library: false
+    }, {
+        url: "https://ideogram.ai/assets/progressive-image/balanced/response/Hma-KogESI-h9o8oyO1YKg",
+        name: "Shoes",
+        liked: false,
+        suggested: true,
+        library: false
     }, {
         url: "https://ideogram.ai/assets/progressive-image/balanced/response/IfLz4vd4Tfy5fnBlMN0cLA",
         name: "Sunrise",
@@ -63,5 +75,6 @@ export function useWallpapers(): FullWallpaper[] {
         liked: false,
         suggested: true,
         library: false
-    }]
+    }, ] 
+
 }

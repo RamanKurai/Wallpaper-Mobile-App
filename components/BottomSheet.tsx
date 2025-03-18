@@ -57,8 +57,7 @@ export const DowloadPicture = ({onClose , wallpaper} : {
           <ThemedView style={styles.textContainer}>
             <ThemedText style={styles.text}>{wallpaper.name}</ThemedText>
           </ThemedView>
-          <DownloadButton 
-          
+          <DownloadButton url={wallpaper.url}
           />
         </ThemedView>
       </BottomSheetView>
@@ -66,7 +65,7 @@ export const DowloadPicture = ({onClose , wallpaper} : {
   );
 };
 
-function DownloadButton() {
+function DownloadButton( { url}  : {url : string}) {
   const theme = useColorScheme() ?? 'light';
     return <Pressable style={{
       backgroundColor: "black",

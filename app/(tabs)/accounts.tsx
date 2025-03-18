@@ -8,7 +8,7 @@ import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
 
 export default function account() {
     return <ThemedSafeAreaView style={{ flex: 1 }}>
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
             <Header />
             <ThemedView style={{ flex: 1 }}>
                 <LoginButtons />
