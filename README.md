@@ -1,50 +1,55 @@
-# Welcome to your Expo app 👋
+# Wallpaper Mobile App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native mobile application that allows users to browse - high-quality wallpapers.[In expo]
 
-## Get started
+## Features
+- Browse a collection of high-quality wallpapers
+- Search for wallpapers by keywords
+- Download and save wallpapers to your device
+- User-friendly UI with smooth navigation
 
-1. Install dependencies
+## Tech Stack
+- **React Native** - For building the mobile application
+- **Tailwind CSS** - For styling
 
-   ```bash
+## Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/RamanKurai/Wallpaper-Mobile-App.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd Wallpaper-Mobile-App
+   ```
+3. Install dependencies:
+   ```sh
    npm install
    ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
+4. Configure your environment variables:
+   - Create a `.env` file in the root directory and add the necessary API keys.
+   ```sh
+   API_KEY=your_api_key
+   ```
+5. Start the development server:
+   ```sh
+   npm start
+   ```
+6. Run the app on an emulator or physical device:
+   ```sh
+   npx react-native run-android # For Android
+   npx react-native run-ios # For iOS
    ```
 
-In the output, you'll find options to open the app in a
+## Contributing
+Contributions are welcome! Feel free to fork the repo and submit pull requests.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## License
+This project is licensed under the MIT License.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Contact
+- **GitHub**: [RamanKurai](https://github.com/RamanKurai)
+- **Twitter**: [@RamanKurai](https://twitter.com/RamanKurai)
+- PostTwitter For showcasing: (https://x.com/RamanKurai/status/1902033153235296408)
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Things Left
+Integrating Backend and Filesystem library for download and save the picture in the local storage.
